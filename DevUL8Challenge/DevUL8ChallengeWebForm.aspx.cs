@@ -22,7 +22,7 @@ namespace DevUL8Challenge
 		
 			hero.Name = "Ant Man, our hero &#x1F601 :-)";
 			hero.Health = 100;
-			hero.DamageMaximum = 16;
+			hero.DamageMaximum = 11;
 			hero.AttackBonus = false;
 			hero.damageSufferred=0;
 	
@@ -56,9 +56,16 @@ namespace DevUL8Challenge
 		// Displays details by round 
 		private void printStuff(Character HeroMon, int Round)
 		{
-			Label1.Text += String.Format("Round: {0}<br>Name: {1}<br> Health: {2}<br> Maximum damage: {3}<br> Attack bonus: {4}<br> Damage suffered by opponent's attack: {5}<br><br>",
-				Round,HeroMon.Name, HeroMon.Health.ToString(), HeroMon.DamageMaximum.ToString(),
+			if (HeroMon.Name == "Juggernaut, our enemy &#x1F620 >:(")
+				Label1.Text += String.Format("Round {0}<br>", Round);
+
+			Label1.Text += String.Format("Name: {0}<br> Health: {1}<br> Maximum damage: {2}<br>" +
+				" Attack bonus: {3}<br> Damage suffered by opponent's attack: {4}<br>",
+				HeroMon.Name, HeroMon.Health.ToString(), HeroMon.DamageMaximum.ToString(),
 				HeroMon.AttackBonus.ToString(), HeroMon.damageSufferred.ToString());
+
+			if (HeroMon.Name == "Ant Man, our hero &#x1F601 :-)")
+				Label1.Text += String.Format("End of Round {0} <br><br>", Round);
 		}
 
 		// for displaying winner
